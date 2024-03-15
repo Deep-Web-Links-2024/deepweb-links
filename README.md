@@ -6,7 +6,7 @@
 
 <small>
 *Every link on our list has been authenticated by WTD, ensuring legitimacy. Exercise caution with unverified links to avoid potential fraud. WTD stands as a trusted beacon in the darkworld realm, empowering thousands daily with secure access. Dive into our repository, featuring premier darkworld markets and services handpicked for your exploration:*
-</small>
+
 
 
 # Deep Web Links or Onion links (March 2024) for Improved Browsing
