@@ -1,0 +1,27 @@
+name: DeepWeb Close
+
+on:
+  schedule:
+    - cron: '*/3 * * * *'  # Runs every 3 minutes
+
+jobs:
+  delete_timeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Delete timeline.txt
+        run: |
+          rm -f timeline.txt
+          ls -l  # For debugging purposes, list files in the directory to check if timeline.txt is deleted
+          
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "sendaernovikendark@hotmail.com"
+          git config --global user.name "Deep-Web-Links-2024"
+          git add -A  # Add all changes, including the deletion of timeline.txt
+          git commit -m "Auto delete timeline.txt" || echo "No changes to commit"
+          git push
+
