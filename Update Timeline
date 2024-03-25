@@ -1,0 +1,17 @@
+name: Update Timeline
+
+on:
+  schedule:
+    - cron: '*/1 * * * *'  # Run every minute
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run Python script
+        run: python update_timeline.py
+        working-directory: .
