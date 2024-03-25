@@ -2,7 +2,7 @@ name: DeepWeb
 
 on:
   schedule:
-    - cron: '*/1 * * * *'  # Runs every minute
+    - cron: '*/5 * * * *'  # Runs every 5 minutes
 
 jobs:
   delete_timeline:
