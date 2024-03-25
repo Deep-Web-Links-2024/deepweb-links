@@ -1,5 +1,15 @@
 name: Add and Delete File
 
+- name: Push changes
+  env:
+    MY_PAT: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+  run: |
+    git config --global user.name 'Your Name'
+    git config --global user.email 'your_email@example.com'
+    git add .
+    git commit -m "Your commit message"
+    git push https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/Deep-Web-Links-2024/deepweb-links.git
+
 on:
   workflow_dispatch:
   schedule:
