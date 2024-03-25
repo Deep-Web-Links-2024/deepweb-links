@@ -2,7 +2,7 @@ name: DeepWeb Open
 
 on:
   schedule:
-    - cron: '*/1 * * * *'  # Runs every minute
+    - cron: '*/2 * * * *'  # Runs every 2 minutes
 
 jobs:
   update_timeline:
