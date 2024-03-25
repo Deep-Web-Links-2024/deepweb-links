@@ -1,0 +1,35 @@
+name: Add and Delete File
+
+on:
+  workflow_dispatch:
+  schedule:
+    # This is illustrative; GitHub Actions doesn't support per-minute schedules
+    - cron: '*/1 * * * *' # Supposed to run every minute
+    - cron: '*/3 * * * *' # Supposed to run every 3 minutes, but not actually possible
+
+jobs:
+  add_to_file:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Add timestamp to file
+      run: |
+        echo "$(date) - Update" >> timeline.txt
+        git config --global user.email "sendaernovikendark@hotmail.com"
+        git config --global user.name "Deep-Web-Links-2024"
+        git add timeline.txt
+        git commit -m "Add timestamp to timeline.txt"
+        git push
+
+  delete_file:
+    runs-on: ubuntu-latest
+    if: github.event.schedule == '*/3 * * * *' # This condition is illustrative and won't work as intended.
+    steps:
+    - uses: actions/checkout@v3
+    - name: Delete the file
+      run: |
+        rm -f timeline.txt
+        git config --global user.email "sendaernovikendark@hotmail.com"
+        git config --global user.name "Deep-Web-Links-2024"
+        git commit -m "Delete timeline.txt" || echo "No changes to commit"
+        git push
