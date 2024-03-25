@@ -1,0 +1,25 @@
+name: DeepWeb On
+
+on:
+  schedule:
+    - cron: '*/1 * * * *'  # Runs every minute
+
+jobs:
+  update_timeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Update timeline.txt
+        run: |
+              echo "$(date -u +'%Y-%m-%d %H:%M:%S') UTC - Update" >> timeline.txt
+          
+      - name: Commit changes
+        run: |
+          git config --global user.email "thehiddenwiki2024@proton.me"
+          git config --global user.name "The-Hidden-Wiki-URLs"
+          git add timeline.txt
+          git commit -m "Auto-update timeline.txt" || echo "No changes to commit"
+          git push
