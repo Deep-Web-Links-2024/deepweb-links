@@ -1,4 +1,4 @@
-name: DeepWeb Close
+name: DeepWeb
 
 on:
   schedule:
